@@ -1,0 +1,10 @@
+[2024-10-29 01:42:43] INFO: Success registration
+[2024-10-29 01:44:01] INFO: Success confirm PIN
+[2024-10-29 01:46:16] ERROR: Error create PIN: 123122
+[2024-10-29 01:46:23] INFO: Success create PIN: 123123
+[2024-10-29 01:48:43] INFO: Clicked menu: Debit Card - /debit-card
+[2024-10-29 01:48:47] INFO: Clicked menu: Other Bank - /debit-card
+[2024-10-29 01:49:07] INFO: Clicked menu: Debit Card - /debit-card
+[2024-10-29 01:51:28] INFO: Remaining Quota: 20000000
+[2024-10-29 01:51:28] INFO: Custom Amount: 300000
+[2024-10-29 01:51:28] INFO: Updated Quota: 19700000

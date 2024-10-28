@@ -12,7 +12,16 @@ export interface MenuItemCardComponent {
 export default function MenuCardComponent({icon, title, subTitle, url}: MenuItemCardComponent) {
   const router = useRouter();
 
-  const handleClick = useCallback(() => {
+  const logMessage = async (level: string, message: string) => {
+    await fetch('/api/log', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ level, message }),
+    });
+  };
+
+  const handleClick = useCallback(async () => {
+    await logMessage('info', `Clicked menu: ${title} - ${url}`);
     router.push(url);
   }, [url]);
 

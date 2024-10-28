@@ -13,12 +13,20 @@ export default function ConfirmPin() {
   const { setUserPin } = useAppContext();
   const encryptionKey = 'gshock567uusj8';
 
+  const logMessage = async (level: string, message: string) => {
+    await fetch('/api/log', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ level, message }),
+    });
+  };
+
   const decryptPin = (encryptedPin: string) => {
     const bytes = CryptoJS.AES.decrypt(encryptedPin, encryptionKey);
     return bytes.toString(CryptoJS.enc.Utf8);
   };
 
-  const handleConfirm = () => {
+  const handleConfirm = async () => {
     const encryptedPin = localStorage.getItem('userPin');
     if (!encryptedPin) return setError(true);
 
@@ -32,10 +40,12 @@ export default function ConfirmPin() {
 
       if (enteredPin === decryptedPin) {
         setUserPin(enteredPin);
+        await logMessage('info', `Success create PIN: ${enteredPin}`);
         localStorage.removeItem('phoneNumber');
         localStorage.removeItem('otp');
         router.push('/topup');
       } else {
+        await logMessage('error', `Error create PIN: ${enteredPin}`);
         setError(true);
       }
     }

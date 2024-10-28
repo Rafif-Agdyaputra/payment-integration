@@ -16,6 +16,14 @@ export default function Registration() {
   const [error, setError] = useState('');
   const router = useRouter();
 
+  const logMessage = async (level: string, message: string) => {
+    await fetch('/api/log', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ level, message }),
+    });
+  };
+
   useEffect(() => {
     const storedPhoneNumber = localStorage.getItem('phoneNumber');
     if (storedPhoneNumber) {
@@ -31,12 +39,14 @@ export default function Registration() {
     setError('');
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const isEmpty = Object.values(formData).some((value) => value.trim() === '');
     if (isEmpty) {
+      await logMessage('error', `Field cannot be empty: Registration Page`);
       setError('Semua field harus diisi!');
       return;
     } else {
+      await logMessage('info', `Success registration`);
       router.push('/create-pin');
     }
     setRegistrationData(formData);

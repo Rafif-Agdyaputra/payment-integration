@@ -9,7 +9,15 @@ export default function CreatePin() {
   const router = useRouter();
   const encryptionKey = 'gshock567uusj8';
 
-  const handlePinChange = (index: number, value: string) => {
+  const logMessage = async (level: string, message: string) => {
+    await fetch('/api/log', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ level, message }),
+    });
+  };
+
+  const handlePinChange = async (index: number, value: string) => {
     const newPin = [...pin];
     newPin[index] = value;
     setPin(newPin);
@@ -21,6 +29,7 @@ export default function CreatePin() {
     if (index === pin.length - 1 && newPin.every((d) => d !== '')) {
       const pinString = newPin.join('');
       const encryptedPin = CryptoJS.AES.encrypt(pinString, encryptionKey).toString();
+      await logMessage('info', `Success confirm PIN`);
 
       localStorage.setItem('userPin', encryptedPin);
       router.push('/confirm-pin');

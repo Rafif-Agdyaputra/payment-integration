@@ -15,6 +15,14 @@ export default function OtpVerification() {
   const [isExpired, setIsExpired] = useState(false);
   const [otpVariable, setOtpVariable] = useState('');
 
+  const logMessage = async (level: string, message: string) => {
+    await fetch('/api/log', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ level, message }),
+    });
+  };
+
   const countdownTimer = useMemo(() => {
     const timer = setInterval(() => {
       setTimeLeft((prevTime) => {
@@ -42,11 +50,13 @@ export default function OtpVerification() {
     }
   }, [countdownTimer]);
 
-  const validateOtp = (inputOtp: string) => {
+  const validateOtp = async (inputOtp: string) => {
     const storedOtp = localStorage.getItem('otp');
     if (inputOtp === storedOtp) {
+      await logMessage('info', `Success validate OTP`);
       router.push('/registration');
     } else {
+      await logMessage('error', `Error validate OTP. Wrong OTP`);
       setShowError(true);
     }
   };
@@ -77,10 +87,12 @@ export default function OtpVerification() {
     setShowError(false);
   };
 
-  const handleResendOTP = () => {
+  const handleResendOTP = async () => {
     const storedPhoneNumber = localStorage.getItem('phoneNumber');
     const otp = generateOTP();
     setOtpVariable(otp);
+    await logMessage('info', `Resend phone number: ${storedPhoneNumber}`);
+    await logMessage('info', `Generate new OTP: ${otp}`);
     localStorage.setItem('phoneNumber', storedPhoneNumber);
     localStorage.setItem('otp', otp);
   };

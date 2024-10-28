@@ -18,6 +18,14 @@ export default function DebitCard() {
   const [remainingQuota, setRemainingQuota] = useState<number>(MAX_MONTHLY_TOPUP);
   const router = useRouter();
 
+  const logMessage = async (level: string, message: string) => {
+    await fetch('/api/log', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ level, message }),
+    });
+  };
+
   const isButtonDisabled =
     customAmount < 20000 ||
     customAmount > 2000000 ||
@@ -37,9 +45,12 @@ export default function DebitCard() {
     setActiveNominal(amount);
   };
 
-  const goToSuccessPage = () => {
+  const goToSuccessPage = async () => {
     const newQuota = remainingQuota - customAmount;
     setRemainingQuota(newQuota);
+    await logMessage('info', `Remaining Quota: ${remainingQuota}`);
+    await logMessage('info', `Custom Amount: ${customAmount}`);
+    await logMessage('info', `Updated Quota: ${newQuota}`);
     localStorage.setItem("remainingQuota", newQuota.toString());
     router.push("/success");
   };
