@@ -1,6 +1,6 @@
 export interface TopUpCardDto {
-  saveUp: number;
-  maxTrx: number;
+  saveUp: string;
+  maxTrx: string;
 }
 
 export default function TopUpInformationCard({saveUp, maxTrx}: TopUpCardDto) {
