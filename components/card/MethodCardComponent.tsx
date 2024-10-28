@@ -1,4 +1,9 @@
-export default function MethodCardComponent({icon, name}: string) {
+export interface MethodCardDto {
+  icon: string;
+  name: string;
+}
+
+export default function MethodCardComponent({icon, name}: MethodCardDto) {
   return (
     <div className="flex flex-row items-center gap-4">
       <div className="flex flex-col items-center justify-center w-[56px] h-[56px] bg-[#0055B81A] rounded-full">
