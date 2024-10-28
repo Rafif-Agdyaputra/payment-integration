@@ -1,5 +1,9 @@
+export interface TopUpCardDto {
+  saveUp: number;
+  maxTrx: number;
+}
 
-export default function TopUpInformationCard({saveUp, maxTrx}) {
+export default function TopUpInformationCard({saveUp, maxTrx}: TopUpCardDto) {
   return (
     <div className="w-full flex flex-row items-start bg-[#F2F6FA] rounded-lg p-[12px] gap-2">
       <img src="/svg/speaker-icon.svg" alt="speaker-icon" width={14} height={14}/>
