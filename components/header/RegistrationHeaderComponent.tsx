@@ -1,7 +1,11 @@
 'use client';
 import { useRouter } from 'next/navigation';
 
-export default function Header({title}: string) {
+export interface RegistrationHeaderDto {
+  title: string;
+}
+
+export default function RegistrationHeaderComponent({title}: RegistrationHeaderDto) {
   const router = useRouter();
 
   const handleBack = () => {

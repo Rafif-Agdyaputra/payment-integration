@@ -59,7 +59,7 @@ export default function DebitCard() {
     <div className="flex flex-col items-start justify-start min-h-screen bg-white px-4 gap-6">
       <MenuHeaderComponent title="Top Up LRTJPay"/>
       <MethodCardComponent icon="wallet-icon.webp" name="Via Debit/Credit Card" />
-      <TopUpInformationCard saveUp={2000000} maxTrx={20000000} />
+      <TopUpInformationCard saveUp={'2000000'} maxTrx={'20000000'} />
       <div className="w-full grid grid-cols-2 gap-2">
         {amountData.map((amount, index) => {
           return (

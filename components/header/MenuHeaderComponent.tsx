@@ -1,7 +1,11 @@
 import { useRouter } from 'next/navigation';
 import {FaArrowLeft} from "react-icons/fa";
 
-export default function MenuHeaderComponent({title}: string) {
+export interface MenuHeaderDto {
+  title: string;
+}
+
+export default function MenuHeaderComponent({title}: MenuHeaderDto) {
 
   const router = useRouter();
 
