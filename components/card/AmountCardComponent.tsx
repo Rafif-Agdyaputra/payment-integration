@@ -1,4 +1,10 @@
-export default function AmountCardComponent({ nominal, isActive, onSelectAmount }) {
+export interface AmountCardDto {
+  nominal: string;
+  isActive: boolean;
+  onSelectAmount: (amount: string) => void;
+}
+
+export default function AmountCardComponent({ nominal, isActive, onSelectAmount }: AmountCardDto) {
   return (
     <div
       onClick={() => onSelectAmount(nominal)}
