@@ -1,5 +1,5 @@
+/* eslint-disable no-use-before-define */
 'use client';
-
 import {useEffect, useState} from 'react';
 import { useRouter } from 'next/navigation';
 import { useAppContext } from "@/contex/AppContext";
