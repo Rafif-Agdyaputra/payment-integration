@@ -5,6 +5,7 @@ import { AiFillInfoCircle } from "react-icons/ai";
 import {useEffect, useState} from "react";
 import {useRouter} from "next/navigation";
 import MenuHeaderComponent from "@/components/header/MenuHeaderComponent";
+import {useAppContext} from "@/contex/AppContext";
 
 export interface AmountData {
   nominal: number;
@@ -17,6 +18,7 @@ export default function DebitCard() {
   const [activeNominal, setActiveNominal] = useState<number | null>(null);
   const [remainingQuota, setRemainingQuota] = useState<number>(MAX_MONTHLY_TOPUP);
   const router = useRouter();
+  const { registrationData } = useAppContext();
 
   const logMessage = async (level: string, message: string) => {
     await fetch('/api/log', {
@@ -60,11 +62,17 @@ export default function DebitCard() {
   };
 
   useEffect(() => {
-    const storedQuota = localStorage.getItem("remainingQuota");
-    if (storedQuota) {
-      setRemainingQuota(Number(storedQuota));
+    if (!registrationData) {
+      router.push('/');
+    } else {
+      const storedQuota = localStorage.getItem("remainingQuota");
+      if (storedQuota) {
+        setRemainingQuota(Number(storedQuota));
+      }
     }
-  }, []);
+  }, [registrationData, router]);
+
+  if (!registrationData) return null;
 
   return (
     <div className="flex flex-col items-start justify-start min-h-screen bg-white px-4 gap-6">

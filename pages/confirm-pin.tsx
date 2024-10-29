@@ -41,8 +41,19 @@ export default function ConfirmPin() {
       if (enteredPin === decryptedPin) {
         setUserPin(enteredPin);
         await logMessage('info', `Success create PIN: ${enteredPin}`);
+        localStorage.removeItem('registrationData');
         localStorage.removeItem('phoneNumber');
         localStorage.removeItem('otp');
+        localStorage.removeItem('userPin');
+        const lastReset = localStorage.getItem('lastQuotaReset');
+        const now = new Date();
+        const currentMonth = now.getMonth();
+
+        if (!lastReset || new Date(lastReset).getMonth() !== currentMonth) {
+          localStorage.setItem('remainingQuota', '20000000');
+          localStorage.setItem('lastQuotaReset', now.toString());
+        }
+
         router.push('/topup');
       } else {
         await logMessage('error', `Error create PIN: ${enteredPin}`);
@@ -56,15 +67,9 @@ export default function ConfirmPin() {
   };
 
   useEffect(() => {
-    const lastReset = localStorage.getItem('lastQuotaReset');
-    const now = new Date();
-    const currentMonth = now.getMonth();
-
-    if (!lastReset || new Date(lastReset).getMonth() !== currentMonth) {
-      localStorage.setItem('remainingQuota', '20000000');
-      localStorage.setItem('lastQuotaReset', now.toString());
-    }
-  }, []);
+    const encryptedPin = localStorage.getItem('userPin');
+    if (!encryptedPin) router.push('/');
+  }, [router]);
 
   return (
     <>

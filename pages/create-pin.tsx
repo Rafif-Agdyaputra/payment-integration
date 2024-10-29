@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
 import { useRouter } from 'next/navigation';
 import CryptoJS from 'crypto-js';
 import RegistrationHeaderComponent from "@/components/header/RegistrationHeaderComponent";
@@ -8,6 +8,13 @@ export default function CreatePin() {
   const [pin, setPin] = useState(['', '', '', '', '', '']);
   const router = useRouter();
   const encryptionKey = 'gshock567uusj8';
+
+  useEffect(() => {
+    const phoneNumber = localStorage.getItem('phoneNumber');
+    if (!phoneNumber) {
+      router.push('/');
+    }
+  }, [router]);
 
   const logMessage = async (level: string, message: string) => {
     await fetch('/api/log', {

@@ -37,3 +37,28 @@
 [2024-10-29 10:45:21] INFO: Remaining Quota: 19000000
 [2024-10-29 10:45:21] INFO: Custom Amount: 250000
 [2024-10-29 10:45:21] INFO: Updated Quota: 18750000
+[2024-10-29 11:29:29] INFO: OTP generated for phone number: 089529538489
+[2024-10-29 11:29:29] INFO: Generated OTP: 141696
+[2024-10-29 11:29:35] ERROR: Error validate OTP. Wrong OTP
+[2024-10-29 11:29:47] INFO: Success validate OTP
+[2024-10-29 11:30:09] INFO: Success registration
+[2024-10-29 11:30:15] INFO: Success confirm PIN
+[2024-10-29 11:30:19] ERROR: Error create PIN: 111112
+[2024-10-29 11:30:24] INFO: Success create PIN: 111111
+[2024-10-29 11:31:02] INFO: Clicked menu: Debit Card - /debit-card
+[2024-10-29 11:34:24] INFO: Remaining Quota: 20000000
+[2024-10-29 11:34:24] INFO: Custom Amount: 250000
+[2024-10-29 11:34:24] INFO: Updated Quota: 19750000
+[2024-10-29 11:35:03] INFO: Remaining Quota: 19750000
+[2024-10-29 11:35:03] INFO: Custom Amount: 900000
+[2024-10-29 11:35:03] INFO: Updated Quota: 18850000
+[2024-10-29 11:53:40] INFO: OTP generated for phone number: 085156900576
+[2024-10-29 11:53:41] INFO: Generated OTP: 830465
+[2024-10-29 11:53:48] INFO: Success validate OTP
+[2024-10-29 11:54:15] INFO: Success registration
+[2024-10-29 11:54:23] INFO: Success confirm PIN
+[2024-10-29 11:54:30] INFO: Success create PIN: 123123
+[2024-10-29 11:55:45] INFO: Clicked menu: Debit Card - /debit-card
+[2024-10-29 11:55:50] INFO: Remaining Quota: 20000000
+[2024-10-29 11:55:50] INFO: Custom Amount: 300000
+[2024-10-29 11:55:50] INFO: Updated Quota: 19700000

@@ -29,9 +29,9 @@ export default function Registration() {
     if (storedPhoneNumber) {
       setFormData((prevData) => ({ ...prevData, phone: storedPhoneNumber }));
     } else {
-      setFormData((prevData) => ({ ...prevData }));
+      router.push('/')
     }
-  }, []);
+  }, [router]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;

@@ -2,6 +2,8 @@ import MethodCardComponent from "@/components/card/MethodCardComponent";
 import MenuCardComponent from "@/components/card/MenuCardComponent";
 import MenuHeaderComponent from "@/components/header/MenuHeaderComponent";
 import {useAppContext} from "@/contex/AppContext";
+import {useEffect} from "react";
+import {useRouter} from "next/navigation";
 
 export interface MenuItemDto {
   icon: string;
@@ -12,6 +14,14 @@ export interface MenuItemDto {
 
 export default function Topup() {
   const { registrationData } = useAppContext();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!registrationData) {
+      router.push('/');
+    }
+  }, [registrationData, router]);
+
 
   const menuItems: MenuItemDto[] = [
     {
@@ -39,6 +49,8 @@ export default function Topup() {
       url: '/debit-card'
     },
   ]
+
+  if (!registrationData) return null;
 
   return (
     <div className="flex flex-col items-start justify-start min-h-screen bg-white px-4 gap-6">
