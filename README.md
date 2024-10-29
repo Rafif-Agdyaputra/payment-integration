@@ -33,7 +33,7 @@ http://localhost:3000
 2. TailwindCSS – Untuk styling yang cepat dan responsif.
 3. Local Storage – Penyimpanan data lokal di browser.
 4. Context API – Pengelolaan state aplikasi.
-5. Winston – Logging untuk kebutuhan debugging (jika diperlukan).
+5. Winston – Logging untuk kebutuhan debugging.
 
 ### 📱 Responsivitas
 - Menggunakan TailwindCSS untuk membuat tampilan responsif.
