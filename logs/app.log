@@ -8,3 +8,32 @@
 [2024-10-29 01:51:28] INFO: Remaining Quota: 20000000
 [2024-10-29 01:51:28] INFO: Custom Amount: 300000
 [2024-10-29 01:51:28] INFO: Updated Quota: 19700000
+[2024-10-29 10:29:24] INFO: OTP generated for phone number: 089529538489
+[2024-10-29 10:29:24] INFO: Generated OTP: 465381
+[2024-10-29 10:29:37] INFO: Resend phone number: 089529538489
+[2024-10-29 10:29:37] INFO: Generate new OTP: 461938
+[2024-10-29 10:29:39] INFO: Resend phone number: 089529538489
+[2024-10-29 10:29:39] INFO: Generate new OTP: 969922
+[2024-10-29 10:29:44] INFO: Success validate OTP
+[2024-10-29 10:30:03] INFO: Success registration
+[2024-10-29 10:30:14] INFO: Success confirm PIN
+[2024-10-29 10:30:23] ERROR: Error create PIN: 123122
+[2024-10-29 10:30:34] INFO: Success create PIN: 123123
+[2024-10-29 10:31:06] INFO: Clicked menu: JakOne Mobile - /debit-card
+[2024-10-29 10:31:11] INFO: Clicked menu: Debit Card - /debit-card
+[2024-10-29 10:33:01] INFO: Remaining Quota: 19700000
+[2024-10-29 10:33:01] INFO: Custom Amount: 80000
+[2024-10-29 10:33:01] INFO: Updated Quota: 19620000
+[2024-10-29 10:34:14] INFO: Remaining Quota: 19620000
+[2024-10-29 10:34:14] INFO: Custom Amount: 250000
+[2024-10-29 10:34:14] INFO: Updated Quota: 19370000
+[2024-10-29 10:34:39] INFO: Remaining Quota: 19370000
+[2024-10-29 10:34:39] INFO: Custom Amount: 50000
+[2024-10-29 10:34:39] INFO: Updated Quota: 19320000
+[2024-10-29 10:38:55] INFO: Clicked menu: Debit Card - /debit-card
+[2024-10-29 10:44:14] INFO: Remaining Quota: 19320000
+[2024-10-29 10:44:14] INFO: Custom Amount: 320000
+[2024-10-29 10:44:14] INFO: Updated Quota: 19000000
+[2024-10-29 10:45:21] INFO: Remaining Quota: 19000000
+[2024-10-29 10:45:21] INFO: Custom Amount: 250000
+[2024-10-29 10:45:21] INFO: Updated Quota: 18750000

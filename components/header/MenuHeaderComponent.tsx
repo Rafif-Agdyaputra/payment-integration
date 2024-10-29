@@ -1,12 +1,11 @@
 import { useRouter } from 'next/navigation';
-import {FaArrowLeft} from "react-icons/fa";
+import { FaArrowLeft } from 'react-icons/fa';
 
 export interface MenuHeaderDto {
   title: string;
 }
 
-export default function MenuHeaderComponent({title}: MenuHeaderDto) {
-
+export default function MenuHeaderComponent({ title }: MenuHeaderDto) {
   const router = useRouter();
 
   const handleBack = () => {
@@ -14,11 +13,11 @@ export default function MenuHeaderComponent({title}: MenuHeaderDto) {
   };
 
   return (
-    <div className="flex items-center bg-white mb-6">
-      <button onClick={handleBack} className="mr-2">
+    <div className="sticky w-full top-0 z-10 flex items-center bg-white px-4 py-3 border-b">
+      <button onClick={handleBack} className="mr-3">
         <FaArrowLeft />
       </button>
-      <span className="text-[#101828] text-[18px] font-semibold">{title}</span>
+      <span className="text-[#101828] text-lg font-semibold">{title}</span>
     </div>
-  )
+  );
 }
