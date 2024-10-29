@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
 import { useRouter } from 'next/navigation';
 import { generateOTP } from '@/service/generateOtpService';
 import RegistrationHeaderComponent from '@/components/header/RegistrationHeaderComponent';
@@ -7,6 +7,11 @@ import RegistrationHeaderComponent from '@/components/header/RegistrationHeaderC
 export default function PhoneInput() {
   const [phoneNumber, setPhoneNumber] = useState('');
   const router = useRouter();
+
+  useEffect(() => {
+    localStorage.removeItem('remainingQuota');
+    localStorage.removeItem('lastQuotaReset');
+  }, []);
 
   const logMessage = async (level: string, message: string) => {
     await fetch('/api/log', {
